@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notte Bianca — Uggiate con Ronago</title>
+  <style>
+    :root{
+      --bg:#081018;
+      --bg2:#0d1722;
+      --card:#111c29;
+      --card2:#162233;
+      --text:#f6f8fb;
+      --muted:#b7c3d2;
+      --accent:#ffcc66;
+      --accent2:#88d6ff;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 50px rgba(0,0,0,.38);
+      --radius:24px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(136,214,255,.18), transparent 26%),
+        radial-gradient(circle at 85% 15%, rgba(255,204,102,.16), transparent 22%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .top{
+      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      color:var(--muted); font-size:14px; padding:6px 0 20px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 16px; border-radius:999px;
+      background:rgba(255,255,255,.05); border:1px solid var(--line);
+      box-shadow:var(--shadow); font-weight:600; color:#fff;
+      text-decoration:none;
+    }
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:20px; align-items:stretch;
+      padding:16px 0 18px;
+    }
+    .hero h1{
+      margin:10px 0 12px;
+      line-height:.9;
+      letter-spacing:-.06em;
+      font-size:clamp(3rem, 7vw, 6.6rem);
+    }
+    .hero h1 .subline{
+      display:block;
+      margin-top:.18em;
+      font-size:clamp(1.15rem, 2vw, 1.9rem);
+      line-height:1.05;
+      letter-spacing:-.03em;
+      color:#d8e3ee;
+      font-weight:700;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:42rem;
+      font-size:1.05rem;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .bigcard{
+      padding:22px;
+      min-height:360px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,204,102,.12);
+      border:1px solid rgba(255,204,102,.25);
+      color:#ffe7af;
+      font-size:13px;
+      letter-spacing:.03em;
+    }
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .meta .item{
+      padding:14px;
+      border-radius:18px;
+      background:rgba(0,0,0,.16);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .meta .k{
+      font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px
+    }
+    .meta .v{font-size:1.03rem; font-weight:700}
+    .section{padding:18px 0}
+    .section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing:-.04em;
+    }
+    .section .lead{margin:0 0 16px; color:var(--muted)}
+    .program{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .dayblock{
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+    .dayhead{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:14px;
+      margin-bottom:8px;
+    }
+    .dayhead h3{
+      margin:0;
+      font-size:1.25rem;
+      letter-spacing:-.02em;
+    }
+    .dayhead .tag{
+      color:var(--accent2);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      white-space:nowrap;
+    }
+    .timeline{
+      display:grid;
+      gap:0;
+    }
+    .entry{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:12px;
+      padding:14px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .entry:first-child{border-top:0; padding-top:8px}
+    .time{
+      font-weight:800;
+      color:var(--accent2);
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+    .title{font-size:1.05rem; font-weight:700}
+    .place{color:var(--muted); font-size:.96rem; margin-top:3px}
+    .group{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .info{
+      padding:18px;
+    }
+    .info p{margin:.2rem 0 .8rem; color:var(--muted)}
+    .info strong{color:var(--text)}
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .list li{margin:8px 0}
+    .sponsors{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+    }
+    .sponsor{
+      min-height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.08);
+      color:#eef4fb;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .sponsor span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:600;
+      margin-top:4px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid rgba(255,204,102,.22);
+      background:rgba(255,204,102,.07);
+      color:#fff3cf;
+    }
+    .hero-svg{
+      width:100%;
+      height:100%;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .hero-svg svg{width:min(100%, 520px); height:auto}
+    footer{
+      padding:28px 0 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width: 900px){
+      .hero,.group,.meta,.sponsors{grid-template-columns:1fr}
+      .entry{grid-template-columns:88px 1fr}
+      .dayhead{flex-direction:column; align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div>Consulta Giovani Uggiate con Ronago</div>
+      <a class="pill" href="#programma">Programma pubblico</a>
+    </div>
+
+    <section class="hero">
+      <div class="card bigcard">
+        <div>
+          <div class="badge">5 e 6 giugno</div>
+          <h1>Notte Bianca<span class="subline">Uggiate con Ronago</span></h1>
+          <p>Piazzale Europa, Uggiate con Ronago. Due giorni di musica, spettacoli, area ristoro e mercatino.</p>
+        </div>
+        <div class="meta">
+          <div class="item">
+            <div class="k">Organizza</div>
+            <div class="v">Consulta Giovani Uggiate con Ronago</div>
+          </div>
+          <div class="item">
+            <div class="k">Luogo</div>
+            <div class="v">Piazzale Europa</div>
+          </div>
+          <div class="item">
+            <div class="k">Formato</div>
+            <div class="v">Programma pubblico</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-svg" aria-label="Illustrazione evento">
+        <svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo stilizzato notte bianca">
+          <rect width="640" height="520" rx="36" fill="#081018"/>
+          <circle cx="490" cy="120" r="60" fill="#ffcc66" opacity=".95"/>
+          <g fill="none" stroke="#88d6ff" stroke-width="18" stroke-linecap="round">
+            <path d="M82 378 C150 316, 210 270, 287 248" />
+            <path d="M258 344 C328 276, 394 240, 482 224" />
+            <path d="M136 184 C198 160, 250 152, 312 156" />
+            <path d="M312 156 C380 160, 444 178, 510 210" />
+          </g>
+          <g fill="#f6f8fb">
+            <path d="M120 360 h36 v-92 h-36z"/>
+            <path d="M170 360 h36 v-132 h-36z"/>
+            <path d="M220 360 h36 v-108 h-36z"/>
+            <path d="M270 360 h36 v-156 h-36z"/>
+            <path d="M320 360 h36 v-120 h-36z"/>
+            <path d="M370 360 h36 v-72 h-36z"/>
+            <path d="M420 360 h36 v-132 h-36z"/>
+            <path d="M470 360 h36 v-96 h-36z"/>
+          </g>
+          <text x="64" y="472" fill="#b7c3d2" font-size="24" font-family="Arial, sans-serif">Musica • Ristoro • Mercatino • Spettacoli</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="programma">
+      <h2>Programma pubblico</h2>
+      <p class="lead">Orari e appuntamenti ricavati dal programma allegato, con esclusione delle voci interne non utili al pubblico.</p>
+
+      <div class="program">
+        <div class="dayblock card">
+          <div class="dayhead">
+            <h3>Venerdì 5 giugno</h3>
+            <div class="tag">Line-up della serata</div>
+          </div>
+          <div class="timeline">
+            <div class="entry">
+              <div class="time">19:00</div>
+              <div>
+                <div class="title">Apertura area ristoro</div>
+                <div class="place">Piazzale Europa</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">21:00</div>
+              <div>
+                <div class="title">Concerto tributo Vasco Rossi</div>
+                <div class="place">Piazzale Europa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dayblock card">
+          <div class="dayhead">
+            <h3>Sabato 6 giugno</h3>
+            <div class="tag">Serata completa</div>
+          </div>
+          <div class="timeline">
+            <div class="entry">
+              <div class="time">17:00</div>
+              <div>
+                <div class="title">Chiusura strade</div>
+                <div class="place">Informazione utile per l’accesso</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">19:00</div>
+              <div>
+                <div class="title">Apertura area ristoro e mercatino</div>
+                <div class="place">Piazzale Europa</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">20:30</div>
+              <div>
+                <div class="title">Sfilata etnica — prima uscita</div>
+                <div class="place">Piazza XXVII gennaio</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">21:00</div>
+              <div>
+                <div class="title">Esibizione EVANDRO</div>
+                <div class="place">Piazzale Europa</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">21:30</div>
+              <div>
+                <div class="title">Mangiafuoco</div>
+                <div class="place">Piazzetta Alpini</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">22:00</div>
+              <div>
+                <div class="title">Schiuma party</div>
+                <div class="place">Piazzale Europa</div>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="time">22:30</div>
+              <div>
+                <div class="title">Sfilata etnica — seconda uscita</div>
+                <div class="place">Piazza XXVII gennaio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="group">
+        <div class="card info">
+          <h2 style="margin-top:0">Informazioni utili</h2>
+          <p><strong>Luogo:</strong> Piazzale Europa, Uggiate con Ronago</p>
+          <p><strong>Organizzazione:</strong> Consulta Giovani Uggiate con Ronago</p>
+          <p><strong>In programma per il pubblico:</strong></p>
+          <ul class="list">
+            <li>area ristoro</li>
+            <li>mercatino</li>
+            <li>concerto tributo Vasco Rossi</li>
+            <li>esibizione EVANDRO</li>
+            <li>spettacolo mangiafuoco</li>
+            <li>schiuma party</li>
+            <li>sfilata etnica in due momenti</li>
+          </ul>
+        </div>
+        <div class="card info">
+          <h2 style="margin-top:0">Sponsor</h2>
+          <p>Spazio riservato ai loghi degli sponsor. Per ora sono presenti segnaposto grafici pronti da sostituire.</p>
+          <div class="sponsors">
+            <div class="sponsor">LOGO<span>spazio sponsor</span></div>
+            <div class="sponsor">LOGO<span>spazio sponsor</span></div>
+            <div class="sponsor">LOGO<span>spazio sponsor</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Notte Bianca · Uggiate con Ronago · giugno</footer>
+  </div>
+</body>
+</html>
