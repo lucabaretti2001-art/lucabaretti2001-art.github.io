@@ -327,11 +327,11 @@
     }
 
     .sponsors{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 215px));
+      display:flex;
+      flex-wrap:wrap;
       justify-content:center;
       align-items:center;
-      gap:6px;
+      gap:8px;
     }
 
     .sponsor{
@@ -343,20 +343,13 @@
       font-weight:700;
       letter-spacing:.02em;
       flex-direction:column;
-    }
-
-    .sponsor:first-child{
-      margin-right:-18px;
-    }
-
-    .sponsor:last-child{
-      margin-left:-18px;
+      flex:0 1 190px;
     }
 
     .sponsor img{
       display:block;
       width:100%;
-      max-width:220px;
+      max-width:190px;
       max-height:110px;
       object-fit:contain;
     }
@@ -405,20 +398,15 @@
     @media (max-width: 900px){
 
   .sponsors{
-    grid-template-columns:repeat(2, minmax(0, 172px));
-    gap:14px;
+    gap:10px;
   }
 
-  .sponsor:first-child{
-    margin-right:0;
-  }
-
-  .sponsor:last-child{
-    margin-left:0;
+  .sponsor{
+    flex-basis:155px;
   }
 
   .sponsor img{
-    max-width:178px;
+    max-width:155px;
     max-height:98px;
   }
 }
