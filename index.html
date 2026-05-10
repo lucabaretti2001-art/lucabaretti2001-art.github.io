@@ -328,10 +328,10 @@
 
     .sponsors{
       display:grid;
-      grid-template-columns:repeat(2, minmax(0, 300px));
+      grid-template-columns:repeat(2, minmax(0, 215px));
       justify-content:center;
       align-items:center;
-      gap:0;
+      gap:6px;
     }
 
     .sponsor{
@@ -356,8 +356,8 @@
     .sponsor img{
       display:block;
       width:100%;
-      max-width:315px;
-      max-height:158px;
+      max-width:220px;
+      max-height:110px;
       object-fit:contain;
     }
 
@@ -405,21 +405,21 @@
     @media (max-width: 900px){
 
   .sponsors{
-    grid-template-columns:repeat(2, minmax(0, 238px));
-    gap:0;
+    grid-template-columns:repeat(2, minmax(0, 172px));
+    gap:14px;
   }
 
   .sponsor:first-child{
-    margin-right:-12px;
+    margin-right:0;
   }
 
   .sponsor:last-child{
-    margin-left:-12px;
+    margin-left:0;
   }
 
   .sponsor img{
-    max-width:248px;
-    max-height:140px;
+    max-width:178px;
+    max-height:98px;
   }
 }
 
