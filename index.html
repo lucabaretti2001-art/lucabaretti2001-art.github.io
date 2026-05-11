@@ -215,7 +215,7 @@
       height:100%;
     }
 
-    @media (min-width: 640px) and (max-width: 930px){
+    @media (min-width: 640px) and (max-width: 940px){
       .venue--centered{
         grid-column:1 / -1;
         justify-self:center;
@@ -443,7 +443,7 @@
 
     @keyframes scrollSponsors{
     from{
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% - 20px))
     }
 
     to{
@@ -584,6 +584,7 @@
 </head>
 <body>
   <div class="wrap">
+
     <div class="top">
       <div class="top-brand">
         <img src="images/STEMMA CONSULTA GIOVANI (2).png" alt="Consulta Giovani">
@@ -595,6 +596,7 @@
         <span>Comune di<br>Uggiate con Ronago</span>
       </div>
     </div>
+    
 
     <section class="hero">
       <div class="card bigcard">
@@ -764,7 +766,7 @@
             </div>
           </article>
 
-          <article class="venue card venue--centered">
+          <article class="venue card">
             <div class="venuehead">
               <h3>Piatti</h3>
             </div>
@@ -822,7 +824,7 @@
             </div>
           </article>
       
-          <article class="venue card">
+          <article class="venue card venue--centered">
             <div class="venuehead">
               <h3>Bevande</h3>
             </div>
@@ -931,7 +933,7 @@
               <div>
                 <div class="contact-label">Instagram</div>
                 <div class="contact-value">
-                  @nottebianca.uggiate
+                  @<a href="https://www.instagram.com/nottebianca.uggiate/">nottebianca.uggiate</a>
                 </div>
               </div>
             </div>
@@ -952,7 +954,10 @@
         </div>
       </section>
 
+      
+
     <footer>Notte Bianca · Uggiate con Ronago</footer>
+    
   </div>
 </body>
 </html>
