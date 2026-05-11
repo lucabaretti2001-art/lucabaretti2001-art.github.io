@@ -336,15 +336,18 @@
     }
 
     .sponsor{
+      flex:0 0 auto;
+      width:180px;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       text-align:center;
       color:#eef4fb;
       font-weight:700;
       letter-spacing:.02em;
       flex-direction:column;
-      flex:0 1 190px;
     }
 
     .sponsor img{
@@ -416,6 +419,116 @@
       .sponsors{
         grid-template-columns:1fr;
       }
+    }
+
+    .sponsor-slider{
+    overflow:hidden;
+    position:relative;
+    width:100%;
+    padding:10px 0;
+    }
+
+    .sponsor-track{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    width:max-content;
+
+    animation: scrollSponsors 20s linear infinite;
+    }
+
+    .sponsor-track:hover{
+    animation-play-state: paused;
+    }
+
+    @keyframes scrollSponsors{
+    from{
+        transform: translateX(-50%);
+    }
+
+    to{
+        transform: translateX(0%);
+    }
+    }
+
+    .contact-card{
+    padding:24px;
+    }
+
+    .contact-grid{
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:18px;
+    }
+
+    .contact-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+
+    padding:18px;
+    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    }
+
+    .contact-icon{
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.06);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    font-size:22px;
+    }
+
+    .contact-icon img{
+    width:24px;
+    height:24px;
+    object-fit:contain;
+    }
+
+    .contact-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent2);
+    margin-bottom:4px;
+    font-weight:700;
+    }
+
+    .contact-value{
+    font-size:1rem;
+    font-weight:600;
+    line-height:1.4;
+    color:#f3f7fb;
+    }
+
+    @media (max-width:700px){
+        .contact-grid{
+            grid-template-columns:1fr;
+        }
+    }
+
+    .menu-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    }
+
+    .price{
+    color:var(--muted);
+    font-size:.94rem;
+    white-space:nowrap;
     }
 
   </style>
@@ -540,24 +653,248 @@
       </div>
     </section>
 
+    <section class="section" id="menu">
+        <h2>Menù della Serata</h2>
+        <p class="lead">
+          Area ristoro attiva entrambe le serate con cucina, bevande, dolci e specialità.
+        </p>
+      
+        <div class="program-grid">
+      
+          <article class="venue card">
+            <div class="venuehead">
+              <h3>Griglia</h3>
+            </div>
+      
+            <div class="timeline">
+      
+                  <div class="entry">
+                    <div class="time">🍔</div>
+                  
+                    <div>
+                      <div class="menu-row">
+                        <div class="title">Panino salamella</div>
+                        <div class="price">5.00€</div>
+                      </div>
+                  
+                      <div class="place">(farcitura cipolle/peperoni)</div>
+                    </div>
+                  </div>
+                  
+                  <div class="entry">
+                    <div class="time">🌭</div>
+                  
+                    <div>
+                      <div class="menu-row">
+                        <div class="title">Panino würstel</div>
+                        <div class="price">5.00€</div>
+                      </div>
+                  
+                      <div class="place">(farcitura cipolle/peperoni)</div>
+                    </div>
+                  </div>
+                  
+                  <div class="entry">
+                    <div class="time">🍟</div>
+                  
+                    <div>
+                      <div class="menu-row">
+                        <div class="title">Patatine fritte</div>
+                        <div class="price">3.00€</div>
+                      </div>
+                    </div>
+                  </div>
+      
+            </div>
+          </article>
+
+          <article class="venue card venue--centered">
+            <div class="venuehead">
+              <h3>Piatti</h3>
+            </div>
+      
+            <div class="timeline">
+      
+              <div class="entry">
+                <div class="time">🍽️</div>
+                <div>
+                    <div class="menu-row">
+                      <div class="title">Salamella e patatine</div>
+                      <div class="price">7.00€</div>
+                    </div>
+                
+                    <div class="place">(farcitura cipolle/peperoni)</div>
+                  </div>
+              </div>
+      
+              <div class="entry">
+                <div class="time">​🌯​</div>
+                <div>
+                    <div class="menu-row">
+                      <div class="title">Würstel e patatine</div>
+                      <div class="price">7.00€</div>
+                    </div>
+                
+                    <div class="place">(farcitura cipolle/peperoni)</div>
+                  </div>
+              </div>
+
+              <div class="entry">
+                <div class="time">🍝</div>
+                <div>
+                    <div class="menu-row">
+                      <div class="title">Pasta</div>
+                      <div class="price">5.00€</div>
+                    </div>
+                
+                    <div class="place">(pomodoro, pesto)</div>
+                  </div>
+              </div>
+
+              <div class="entry">
+                <div class="time">🥗</div>
+                <div>
+                    <div class="menu-row">
+                      <div class="title">Piatto vegano</div>
+                      <div class="price">5.00€</div>
+                    </div>
+
+                    <div class="place">(insalata, verdure grigliate)</div>
+                  </div>
+              </div>
+      
+            </div>
+          </article>
+      
+          <article class="venue card">
+            <div class="venuehead">
+              <h3>Bevande</h3>
+            </div>
+      
+            <div class="timeline">
+
+              <div class="entry">
+                <div class="time">🫗</div>
+                <div>
+                  <div class="menu-row">
+                    <div class="title">Acqua</div>
+                    <div class="price">1.00€</div>
+                  </div>
+                </div>
+              </div>
+      
+              
+      
+              <div class="entry">
+                <div class="time">🍺</div>
+                <div>
+                  <div class="menu-row">
+                    <div class="title">Birra alla spina</div>
+                  <div class="price">4.00€</div>
+                </div>
+                </div>
+              </div>
+      
+              <div class="entry">
+                <div class="time">🍹</div>
+                <div>
+                  <div class="menu-row">
+                    <div class="title">Spritz</div>
+                    <div class="price">5.00€</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="time">🥤</div>
+                <div>
+                    <div class="menu-row">
+                        <div class="title">Bibite</div>
+                        <div class="price">3.00€</div>
+                    </div>
+                    <div class="place">(Coca cola, Coca cola zero, Fanta, Sprite, The limone/pesca)</div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+      
+        </div>
+      </section>
+
     <section class="section">
+        <h2 style="margin-top:0">Sponsor</h2>
         <div class="card info">
-          <h2 style="margin-top:0">Sponsor</h2>
-          <div class="sponsors">
-            <div class="sponsor"><img src="images/certa.png" alt="Sponsor 1"></div>
-            <div class="sponsor"><img src="images/angolo.jpeg" alt="Sponsor 1"></div>
-            <div class="sponsor"><img src="images/PAGANI.png" alt="Sponsor 1"></div>
+          <div class="sponsor-slider">
+            <div class="sponsor-track">
+              <div class="sponsor"><img src="images/certa.png" alt="Sponsor 1"></div>
+              <div class="sponsor"><img src="images/angolo.jpeg" alt="Sponsor 2"></div>
+              <div class="sponsor"><img src="images/PAGANI.png" alt="Sponsor 3"></div>
+          
+              <div class="sponsor"><img src="images/certa.png" alt="Sponsor 1"></div>
+              <div class="sponsor"><img src="images/angolo.jpeg" alt="Sponsor 2"></div>
+              <div class="sponsor"><img src="images/PAGANI.png" alt="Sponsor 3"></div>
+            </div>
           </div>
         </div>
     </section>
 
     <section class="section">
-        <div class="card info">
-          <h2 style="margin-top:0">Contatti</h2>
-          <p><strong>Luogo:</strong> Piazzale Europa, Uggiate con Ronago (Como)</p>
-          <p><strong>Organizzazione:</strong> Consulta Giovani Uggiate con Ronago | Comune di Uggiate con Ronago</p>
+        <h2 style="margin-top:0">Contatti & Social</h2>
+      
+        <div class="card info contact-card">
+      
+          <div class="contact-grid">
+      
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-label">Luogo</div>
+                <div class="contact-value">
+                  Piazzale Europa<br>
+                  Uggiate con Ronago (Como)
+                </div>
+              </div>
+            </div>
+      
+            <div class="contact-item">
+              <div class="contact-icon">🏛️</div>
+              <div>
+                <div class="contact-label">Organizzazione</div>
+                <div class="contact-value">
+                  Consulta Giovani Uggiate con Ronago<br>
+                  Comune di Uggiate con Ronago
+                </div>
+              </div>
+            </div>
+      
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img src="images/instagram_logo.png" alt="Instagram">
+              </div>
+              <div>
+                <div class="contact-label">Instagram</div>
+                <div class="contact-value">
+                  @nottebianca.uggiate
+                </div>
+              </div>
+            </div>
+      
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img src="images/facebook.png" alt="Facebook">
+              </div>
+              <div>
+                <div class="contact-label">Facebook</div>
+                <div class="contact-value">
+                  Notte Bianca Uggiate con Ronago
+                </div>
+              </div>
+            </div>
+      
+          </div>
         </div>
-    </section>
+      </section>
 
     <footer>Notte Bianca · Uggiate con Ronago</footer>
   </div>
