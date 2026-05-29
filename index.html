@@ -580,6 +580,86 @@
     
     }
 
+    /* ===== Menu 6 sezioni ===== */
+
+    .menu-grid-6{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .venue .timeline .entry .time{
+      width:38px;
+      text-align:center;
+    }
+
+    .venue .timeline .entry{
+      grid-template-columns:48px 1fr;
+    }
+
+    .venuehead .cat-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      color:#eaf2fb;
+    }
+
+    /* Colori indicativi per categorie */
+    .cat--griglia{ background:rgba(255,204,102,.12); border-color:rgba(255,204,102,.22); color:#ffe7af; }
+    .cat--contorni{ background:rgba(136,214,255,.12); border-color:rgba(136,214,255,.22); color:#d6f1ff; }
+    .cat--piatti{ background:rgba(255,255,255,.08); }
+    .cat--veg{ background:rgba(140,230,170,.14); border-color:rgba(140,230,170,.28); color:#e6ffef; }
+    .cat--drick{ background:rgba(180,200,255,.12); border-color:rgba(180,200,255,.22); color:#eef2ff; }
+    .cat--alcool{ background:rgba(255,140,160,.12); border-color:rgba(255,140,160,.22); color:#ffeaf0; }
+
+    .menu-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .menu-row .title{
+      font-size:1.02rem;
+      font-weight:700;
+    }
+
+    .menu-row .price{
+      color:#d9e3ef;
+      font-weight:700;
+    }
+
+    .menu-note{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-top:4px;
+    }
+
+    /* Più respiro nelle card del menù */
+    .venue{
+      padding:20px;
+    }
+
+    /* Emoji colonna tempo leggermente più grande per icone */
+    .entry .time{ font-size:18px; }
+
+    /* Responsive fine-tuning */
+    @media (max-width:480px){
+      .venue .timeline .entry{
+        grid-template-columns:38px 1fr;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -695,180 +775,265 @@
     </section>
 
     <section class="section" id="menu">
-        <h2>Menù delle Serate</h2>
-        <p class="lead">
-        </p>
-      
-        <div class="program-grid">
-      
-          <article class="venue card">
-            <div class="venuehead">
-              <h3>Griglia</h3>
+  <h2>Menù delle Serate</h2>
+  <p class="lead"></p>
+
+  <div class="menu-grid-6">
+
+    <!-- Griglia -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--griglia">Griglia</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">🍔</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Panino Salamella</div>
+              <div class="price">5.00€</div>
             </div>
-      
-            <div class="timeline">
-      
-                  <div class="entry">
-                    <div class="time">🍔</div>
-                  
-                    <div>
-                      <div class="menu-row">
-                        <div class="title">Panino Salamella</div>
-                        <div class="price">5.00€</div>
-                      </div>
-                  
-                      <div class="place">(farcitura cipolle/peperoni)</div>
-                    </div>
-                  </div>
-                  
-                  <div class="entry">
-                    <div class="time">🌭</div>
-                  
-                    <div>
-                      <div class="menu-row">
-                        <div class="title">Panino Würstel</div>
-                        <div class="price">5.00€</div>
-                      </div>
-                  
-                      <div class="place">(farcitura cipolle/peperoni)</div>
-                    </div>
-                  </div>
-                  
-                  <div class="entry">
-                    <div class="time">🍟</div>
-                  
-                    <div>
-                      <div class="menu-row">
-                        <div class="title">Patatine Fritte</div>
-                        <div class="price">3.00€</div>
-                      </div>
-                    </div>
-                  </div>
-
-                    <div class="entry">
-                    <div class="time">🫘</div>
-                  
-                    <div>
-                      <div class="menu-row">
-                        <div class="title">Fagioli e Cipolle</div>
-                        <div class="price">2.50€</div>
-                      </div>
-                    </div>
-                  </div>
-      
-            </div>
-          </article>
-
-          <article class="venue card">
-            <div class="venuehead">
-              <h3>Piatti</h3>
-            </div>
-      
-            <div class="timeline">
-      
-              <div class="entry">
-                <div class="time">🍽️</div>
-                <div>
-                    <div class="menu-row">
-                      <div class="title">Salamella e Patatine</div>
-                      <div class="price">8.00€</div>
-                    </div>
-                
-                    <div class="place">(farcitura cipolle/peperoni)</div>
-                  </div>
-              </div>
-      
-              <div class="entry">
-                <div class="time">🍖​​</div>
-                <div>
-                    <div class="menu-row">
-                      <div class="title">Würstel e Patatine</div>
-                      <div class="price">8.00€</div>
-                      
-                    </div>
-                
-                    <div class="place">(farcitura cipolle/peperoni)</div>
-                  </div>
-              </div>
-
-              <div class="entry">
-                <div class="time">🍝</div>
-                <div>
-                    <div class="menu-row">
-                      <div class="title">Pasta</div>
-                      <div class="price">6.00€</div>
-                    </div>
-                
-                    <div class="place">(pomodoro/pesto)</div>
-                  </div>
-              </div>
-
-              <div class="entry">
-                <div class="time">🥗</div>
-                <div>
-                    <div class="menu-row">
-                      <div class="title">Caprino con Verdure Grigliate</div>
-                      <div class="price">6.00€</div>
-              </div>
-      
-            </div>
-          </article>
-      
-          <article class="venue card venue--centered">
-            <div class="venuehead">
-              <h3>Bevande</h3>
-            </div>
-      
-            <div class="timeline">
-
-              <div class="entry">
-                <div class="time">💧​</div>
-                <div>
-                  <div class="menu-row">
-                    <div class="title">Acqua</div>
-                    <div class="price">1.00€</div>
-                  </div>
-                </div>
-              </div>
-      
-              
-      
-              <div class="entry">
-                <div class="time">🍺</div>
-                <div>
-                  <div class="menu-row">
-                    <div class="title">Birra Chiara</div>
-                  <div class="price">4.00€</div>
-                </div>
-                </div>
-              </div>
-      
-              <div class="entry">
-                <div class="time">🍹</div>
-                <div>
-                  <div class="menu-row">
-                    <div class="title">Aperol Spritz</div>
-                    <div class="price">5.00€</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="entry">
-                <div class="time">🥤</div>
-                <div>
-                    <div class="menu-row">
-                        <div class="title">Bibite</div>
-                        <div class="price">3.00€</div>
-                    </div>
-                    <div class="place">(Coca Cola, Coca Cola Zero, Fanta, Sprite, The Limone/Pesca)</div>
-                </div>
-              </div>
-
-            </div>
-          </article>
-      
+            <div class="menu-note">(farcitura cipolle/peperoni)</div>
+          </div>
         </div>
-      </section>
+
+        <div class="entry">
+          <div class="time">🌭</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Panino Würstel</div>
+              <div class="price">5.00€</div>
+            </div>
+            <div class="menu-note">(farcitura cipolle/peperoni)</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍖</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Arrosticini (5 pz.)</div>
+              <div class="price">5.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🥓</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Arrosticini (12 pz.)</div>
+              <div class="price">10.00€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Piatti -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--piatti">Piatti</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">🍽️</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Salamella e Patatine</div>
+              <div class="price">8.00€</div>
+            </div>
+            <div class="menu-note">(farcitura cipolle/peperoni)</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍛</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Würstel e Patatine</div>
+              <div class="price">8.00€</div>
+            </div>
+            <div class="menu-note">(farcitura cipolle/peperoni)</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍝</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Pasta</div>
+              <div class="price">6.00€</div>
+            </div>
+            <div class="menu-note">(pomodoro/pesto)</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Drick (Analcolici) -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--drick">Drink</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">💧</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Acqua</div>
+              <div class="price">1.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🥤</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Bibite</div>
+              <div class="price">3.00€</div>
+            </div>
+            <div class="menu-note">(Coca Cola, Coca Cola Zero, Fanta, Sprite, The Limone/Pesca)</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+     <!-- Contorni -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--contorni">Contorni</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">🍟</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Patatine Fritte</div>
+              <div class="price">3.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🫘</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Fagioli e Cipolle</div>
+              <div class="price">2.50€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Veg -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--veg">Vegetariano</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">🥬​</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Verdure Grigliate</div>
+              <div class="price">4.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🥗</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Caprino con Verdure Grigliate</div>
+              <div class="price">7.00€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Alcool -->
+    <article class="venue card">
+      <div class="venuehead">
+        <h3 class="cat-tag cat--alcool">Alcool</h3>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="time">🍺</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Birra Chiara 0,3L</div>
+              <div class="price">4.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍻</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Caraffa Birra Chiara 1,5L</div>
+              <div class="price">17.00€</div>
+            </div>
+            <div class="menu-note">Restituisci la caraffa: rimborso 3.00€</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍹</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Aperol Spritz</div>
+              <div class="price">5.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍷</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Bicchiere vino rosso</div>
+              <div class="price">2.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🍾</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Caraffa vino rosso</div>
+              <div class="price">8.00€</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="time">🥂</div>
+          <div>
+            <div class="menu-row">
+              <div class="title">Campari soda</div>
+              <div class="price">3.50€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 
     <section class="section">
         <h2 style="margin-top:0">Sponsor</h2>
